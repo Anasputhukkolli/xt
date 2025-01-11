@@ -270,11 +270,11 @@ h3 {
   position: absolute;
   content: "";
   /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&1+0,0.8+100 */
-  background: -moz-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: -moz-linear-gradient(top, black 0%, rgb(0, 0, 0) 100%);
   /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, black 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: -webkit-linear-gradient(top, black 0%, rgb(0, 0, 0) 100%);
   /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, black 0%, rgba(0, 0, 0, 0.8) 100%);
+  background: linear-gradient(to bottom, black 0%, rgb(0, 0, 0) 100%);
   /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#000000', endColorstr='#cc000000', GradientType=0);
   /* IE6-9 */
@@ -1728,7 +1728,9 @@ h3 {
 
   /* line 86, ../../Arafath/CL/December/236. Event-02/HTML/scss/_slider.scss */
   .slider_area .single_slider .slider_text p {
-    font-size: 16px;
+    font-size: 22px;
+    margin: 0 !important;
+    padding: 0 !important;
   }
 }
 
@@ -2530,6 +2532,7 @@ h3 {
   position: relative;
   display: block;
   overflow: hidden;
+  
 }
 
 /* line 15, ../../Arafath/CL/December/236. Event-02/HTML/scss/_program_details.scss */
@@ -6111,7 +6114,6 @@ h6 {
   width: 80%;
   max-width: 500px;
   border-radius: 15px;
-  padding: 20px;
   margin: 20px auto;
 }
 
@@ -6135,6 +6137,23 @@ h6 {
 }
 .single_info p{
   font-family: Verdana, sans-serif !important;
+}
+.porgram_top{
+  background-color: #257547;
+  padding: 18px 16px; 
+  border-radius: 8px;
+  border: 8px solid #0d4425;
+  position: relative;
+}
+.porgram_top img{
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.baner{
+  background: url("../img/details.jpeg");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
 
