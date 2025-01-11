@@ -366,3 +366,31 @@ $(document).ready(function () {
     ); // 1000ms for smooth scrolling
   });
 });
+
+
+
+// Set the target date for the countdown
+const targetDate = new Date("2025-02-07T00:00:00").getTime();
+
+function updateCountdown() {
+  const now = new Date().getTime();
+  const timeLeft = targetDate - now;
+
+  const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+  document.getElementById("days").innerText = days.toString().padStart(2, "0");
+  document.getElementById("hours").innerText = hours.toString().padStart(2, "0");
+  document.getElementById("minutes").innerText = minutes.toString().padStart(2, "0");
+  document.getElementById("seconds").innerText = seconds.toString().padStart(2, "0");
+
+  if (timeLeft < 0) {
+    clearInterval(countdownInterval);
+    document.querySelector(".countdown-timer").innerHTML = "<h2 class='text-danger'>The Game Has Started!</h2>";
+  }
+}
+
+const countdownInterval = setInterval(updateCountdown, 1000);
+updateCountdown();
