@@ -79,11 +79,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="overlay"></div>
-                            <div id="customAlert">
-                                <p>Tickets will be available soon!</p>
-                                <button onclick="closeAlert()">OK</button>
-                            </div>
+
+
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>
                             </div>
@@ -136,7 +133,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <a class="boxed-btn3 wow fadeInUp openPopup " data-wow-duration="1s"
+                            <a href="#home" class="boxed-btn3 wow fadeInUp openPopup " data-wow-duration="1s"
                                 data-wow-delay=".6s">Buy
                                 Tickets</a>
 
@@ -543,6 +540,32 @@
         </div>
 
     </footer>
+
+
+    <div id="overlay"></div>
+    <div id="loadingSpinner">
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <circle id="test" cx="40" cy="40" r="32"></circle>
+            </svg>
+        </div>
+
+        <div class="loader triangle">
+            <svg viewBox="0 0 86 80">
+                <polygon points="43 8 79 72 7 72"></polygon>
+            </svg>
+        </div>
+
+        <div class="loader">
+            <svg viewBox="0 0 80 80">
+                <rect x="8" y="8" width="64" height="64"></rect>
+            </svg>
+        </div>
+    </div>
+    <div id="customAlert">
+        <p id="alertMessage" style="display: none;">Tickets will be available soon!</p>
+        <button onclick="closeAlert()">OK</button>
+    </div>
     <!-- footer_end  -->
 
     <!-- JS here -->

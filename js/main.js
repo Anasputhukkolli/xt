@@ -401,23 +401,36 @@ function updateCountdown() {
 
 const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
-
 const buttons = document.querySelectorAll('.openPopup');
 const customAlert = document.getElementById('customAlert');
 const overlay = document.getElementById('overlay');
+const loadingSpinner = document.getElementById('loadingSpinner');
+const alertMessage = document.getElementById('alertMessage');
 
 // Add a click event listener to each button
 buttons.forEach(button => {
     button.addEventListener('click', (event) => {
         event.preventDefault(); // Prevent default link behavior
-        showAlert();
+        showLoadingSpinner(); // Show only the loading spinner initially
     });
 });
 
-// Function to show the custom alert
-function showAlert() {
-    customAlert.style.display = 'block';
-    overlay.style.display = 'block';
+// Function to show the loading spinner without showing customAlert initially
+function showLoadingSpinner() {
+    overlay.style.display = 'block'; // Show overlay
+    loadingSpinner.style.display = 'block'; // Show loading spinner
+
+    // Simulate loading process
+    setTimeout(() => {
+        showCustomAlert(); // Show the custom alert after loading
+    }, 2000); // Delay of 2 seconds to simulate loading
+}
+
+// Function to show the custom alert with the message after loading
+function showCustomAlert() {
+    loadingSpinner.style.display = 'none'; // Hide loading spinner
+    customAlert.style.display = 'block'; // Show the custom alert container
+    alertMessage.style.display = 'block'; // Show the alert message
 }
 
 // Function to close the custom alert
