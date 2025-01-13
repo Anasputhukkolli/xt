@@ -449,6 +449,11 @@ let messageCount = 0; // Counter to track the number of messages
 // Toggle chat popup visibility when clicking on the icon
 chatbotIcon.addEventListener("click", (event) => {
   event.stopPropagation(); // Prevent click from bubbling up to the document
+  if (chatPopup.style.display === "block") {
+    // Reset the chat if closing the popup
+    chatBox.innerHTML = ""; // Clear the chat history
+    messageCount = 0; // Reset the message count
+  }
   chatPopup.style.display =
     chatPopup.style.display === "none" || chatPopup.style.display === ""
       ? "block"
@@ -472,9 +477,15 @@ sendButton.addEventListener("click", () => {
           'Here is the <a href="https://maps.app.goo.gl/X8sd3b5NNZR4aH7a9" target="_blank">Google Maps link</a>'; // Google Maps link
       } else if (messageCount === 1) {
         botResponse = "Hey, how can I help you?"; // First response
-      } else if (messageCount === 2) {
+      } else if (userMessage.includes("phone") || userMessage.includes("number") || userMessage.includes("call")) {
         botResponse =
-          'To Know more, call <a href="tel:+994775768">994775768</a>'; // Clickable phone number
+          ' call Us <a href="tel:+994775768">994775768</a>'; // Clickable phone number
+      } else if (userMessage.includes("how are you") || userMessage.includes("what about you")) {
+        botResponse =
+          'Fine, glad to meet you!'; // Response for "how are you"
+      } else if (userMessage.includes("xt") || userMessage.includes("xtrinia")) {
+        botResponse =
+          "XT is a 3-day event with cultural, technical, and non-technical events."; // Event description
       } else {
         botResponse = "I'm here to assist you further."; // Default response
       }
@@ -502,6 +513,8 @@ function displayMessage(message, sender) {
 document.addEventListener("click", (event) => {
   if (!chatPopup.contains(event.target) && event.target !== chatbotIcon) {
     chatPopup.style.display = "none";
+    chatBox.innerHTML = ""; // Clear the chat when closing the popup
+    messageCount = 0; // Reset the message count
   }
 });
 
