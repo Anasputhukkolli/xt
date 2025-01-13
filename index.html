@@ -70,19 +70,19 @@
                                     </nav>
                                 </div>
                             </div>
+
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="buy_tkt">
                                     <div class="book_btn d-none d-lg-block">
                                         <a class="openPopup" href="#">Buy Tickets</a>
-                                        <div class="popup-overlay" id="popupOverlay">
-                                            <div class="popup">
-                                                <h2 class="mb-3">Welcome!</h2>
-                                                <p class="mb-4">Tickets available soon!!</p>
-                                                <button id="closePopup" class="btn btn-danger">Close</button>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
+                            </div>
+                            <div id="overlay"></div>
+                            <div id="customAlert">
+                                <p>Tickets will be available soon!</p>
+                                <button onclick="closeAlert()">OK</button>
                             </div>
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none"></div>
@@ -97,6 +97,11 @@
     <!-- header-end -->
 
     <!-- slider_area_start -->
+    <div id="overlay"></div>
+    <div id="customAlert">
+        <p>Tickets will be available soon!</p>
+        <button onclick="closeAlert()">OK</button>
+    </div>
     <div class="slider_area">
         <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
             <div class="container">
@@ -171,7 +176,8 @@
                             brilliance, and meaningful connections! The program has some really enjoying cultural
                             activities, innovative technical sessions, hands-on workshops, and a dedicated networking
                             section to build lasting connections. </p>
-                        <a href="#" class="boxed-btn3  wow fadeInLeft openPopup" data-wow-duration="1s" data-wow-delay=".7s">Buy
+                        <a href="#" class="boxed-btn3  wow fadeInLeft openPopup" data-wow-duration="1s"
+                            data-wow-delay=".7s">Buy
                             Tickets</a>
                     </div>
                 </div>

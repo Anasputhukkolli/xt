@@ -402,23 +402,26 @@ function updateCountdown() {
 const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
 
-const openPopupButtons = document.querySelectorAll(".openPopup");
-const popupOverlay = document.getElementById("popupOverlay");
-const closePopupButton = document.getElementById("closePopup");
+const buttons = document.querySelectorAll('.openPopup');
+const customAlert = document.getElementById('customAlert');
+const overlay = document.getElementById('overlay');
 
-openPopupButtons.forEach((button) => {
-  button.addEventListener("click", () => {
-    popupOverlay.style.display = "flex";
-  });
+// Add a click event listener to each button
+buttons.forEach(button => {
+    button.addEventListener('click', (event) => {
+        event.preventDefault(); // Prevent default link behavior
+        showAlert();
+    });
 });
 
-closePopupButton.addEventListener("click", () => {
-  popupOverlay.style.display = "none";
-});
+// Function to show the custom alert
+function showAlert() {
+    customAlert.style.display = 'block';
+    overlay.style.display = 'block';
+}
 
-// Close popup when clicking outside the popup box
-popupOverlay.addEventListener("click", (e) => {
-  if (e.target === popupOverlay) {
-    popupOverlay.style.display = "none";
-  }
-});
+// Function to close the custom alert
+function closeAlert() {
+    customAlert.style.display = 'none';
+    overlay.style.display = 'none';
+}

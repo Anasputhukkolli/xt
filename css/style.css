@@ -1082,7 +1082,7 @@ h3 {
   }
 }
 
-@media (min-width: 768px) and  {
+@media (min-width: 768px) and {
 
   /* line 32, ../../Arafath/CL/December/236. Event-02/HTML/scss/_header.scss */
   .header-area .main-header-area .logo-img {
@@ -1106,7 +1106,7 @@ h3 {
   }
 }
 
-@media (min-width: 768px) and  {
+@media (min-width: 768px) and {
 
   /* line 46, ../../Arafath/CL/December/236. Event-02/HTML/scss/_header.scss */
   .header-area .main-header-area .logo-img img {
@@ -6171,42 +6171,48 @@ h6 {
 
 
 }
-.popup-overlay {
-  position: fixed ;
+
+#customAlert {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background: #fff;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  z-index: 1000;
+  border-radius: 8px;
+  font-size: 12px;
+}
+
+#customAlert button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  background: #ef2c68;
+  color: #fff;
+  cursor: pointer;
+  width: 60%;
+  padding-top: 18px;
+}
+
+#customAlert button:hover {
+  border:1px solid #ef2c68;
+  color: #ef2c68;
+  background: transparent;}
+
+#overlay {
+  display: none;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  display: none;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  overflow-y: auto; /* Allow scrolling on small screens */
-}
-.popup {
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  width: 90%; /* Adjust for smaller screens */
-  max-width: 400px;
-  max-height: 90vh; /* Prevent overflow */
-  padding: 20px;
-  text-align: center;
-  animation: popup-show 0.3s ease-in-out;
-  overflow-y: auto; /* Add scrolling inside the popup if needed */
-}
-
-@keyframes popup-show {
-  from {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
 }
 
 @media (max-width: 992px) {
@@ -6216,9 +6222,6 @@ h6 {
     margin: 0 auto;
     font-size: 12px;
   }
-  .popup {
-    display: block !important;
-  }
-  
-  
+
+
 }
