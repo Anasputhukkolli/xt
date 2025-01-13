@@ -401,40 +401,111 @@ function updateCountdown() {
 
 const countdownInterval = setInterval(updateCountdown, 1000);
 updateCountdown();
-const buttons = document.querySelectorAll('.openPopup');
-const customAlert = document.getElementById('customAlert');
-const overlay = document.getElementById('overlay');
-const loadingSpinner = document.getElementById('loadingSpinner');
-const alertMessage = document.getElementById('alertMessage');
+const buttons = document.querySelectorAll(".openPopup");
+const customAlert = document.getElementById("customAlert");
+const overlay = document.getElementById("overlay");
+const loadingSpinner = document.getElementById("loadingSpinner");
+const alertMessage = document.getElementById("alertMessage");
 
 // Add a click event listener to each button
-buttons.forEach(button => {
-    button.addEventListener('click', (event) => {
-        event.preventDefault(); // Prevent default link behavior
-        showLoadingSpinner(); // Show only the loading spinner initially
-    });
+buttons.forEach((button) => {
+  button.addEventListener("click", (event) => {
+    event.preventDefault(); // Prevent default link behavior
+    showLoadingSpinner(); // Show only the loading spinner initially
+  });
 });
 
 // Function to show the loading spinner without showing customAlert initially
 function showLoadingSpinner() {
-    overlay.style.display = 'block'; // Show overlay
-    loadingSpinner.style.display = 'block'; // Show loading spinner
+  overlay.style.display = "block"; // Show overlay
+  loadingSpinner.style.display = "block"; // Show loading spinner
 
-    // Simulate loading process
-    setTimeout(() => {
-        showCustomAlert(); // Show the custom alert after loading
-    }, 2000); // Delay of 2 seconds to simulate loading
+  // Simulate loading process
+  setTimeout(() => {
+    showCustomAlert(); // Show the custom alert after loading
+  }, 2000); // Delay of 2 seconds to simulate loading
 }
 
 // Function to show the custom alert with the message after loading
 function showCustomAlert() {
-    loadingSpinner.style.display = 'none'; // Hide loading spinner
-    customAlert.style.display = 'block'; // Show the custom alert container
-    alertMessage.style.display = 'block'; // Show the alert message
+  loadingSpinner.style.display = "none"; // Hide loading spinner
+  customAlert.style.display = "block"; // Show the custom alert container
+  alertMessage.style.display = "block"; // Show the alert message
 }
 
 // Function to close the custom alert
 function closeAlert() {
-    customAlert.style.display = 'none';
-    overlay.style.display = 'none';
+  customAlert.style.display = "none";
+  overlay.style.display = "none";
 }
+const chatbotIcon = document.getElementById("chatbot");
+const chatPopup = document.getElementById("chatPopup");
+const sendButton = document.getElementById("sendBtn");
+const userInput = document.getElementById("userInput");
+const chatBox = document.getElementById("chatBox");
+
+let messageCount = 0; // Counter to track the number of messages
+
+// Toggle chat popup visibility when clicking on the icon
+chatbotIcon.addEventListener("click", (event) => {
+  event.stopPropagation(); // Prevent click from bubbling up to the document
+  chatPopup.style.display =
+    chatPopup.style.display === "none" || chatPopup.style.display === ""
+      ? "block"
+      : "none";
+});
+
+// Handle user input and bot response
+sendButton.addEventListener("click", () => {
+  const userMessage = userInput.value.trim();
+  if (userMessage) {
+    // Display user message
+    displayMessage(userMessage, "user");
+
+    // Bot response based on the number of user messages
+    messageCount++;
+
+    setTimeout(() => {
+      let botResponse = "";
+      if (userMessage.includes("location") || userMessage.includes("place")) {
+        botResponse =
+          'Here is the <a href="https://maps.app.goo.gl/X8sd3b5NNZR4aH7a9" target="_blank">Google Maps link</a>'; // Google Maps link
+      } else if (messageCount === 1) {
+        botResponse = "Hey, how can I help you?"; // First response
+      } else if (messageCount === 2) {
+        botResponse =
+          'To Know more, call <a href="tel:+994775768">994775768</a>'; // Clickable phone number
+      } else {
+        botResponse = "I'm here to assist you further."; // Default response
+      }
+
+      displayMessage(botResponse, "bot");
+    }, 1000);
+
+    // Clear input field
+    userInput.value = "";
+  }
+});
+
+// Display messages in the chat box
+function displayMessage(message, sender) {
+  const messageElement = document.createElement("div");
+  messageElement.classList.add("message", sender);
+  messageElement.innerHTML = message; // Use innerHTML to render HTML content (like <a> tags)
+  chatBox.appendChild(messageElement);
+
+  // Scroll to the bottom of the chat box
+  chatBox.scrollTop = chatBox.scrollHeight;
+}
+
+// Close the chat popup if clicked outside
+document.addEventListener("click", (event) => {
+  if (!chatPopup.contains(event.target) && event.target !== chatbotIcon) {
+    chatPopup.style.display = "none";
+  }
+});
+
+// Prevent the popup from closing when clicking inside the chat window
+chatPopup.addEventListener("click", (event) => {
+  event.stopPropagation(); // Prevent click from bubbling up to the document
+});

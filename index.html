@@ -94,11 +94,7 @@
     <!-- header-end -->
 
     <!-- slider_area_start -->
-    <div id="overlay"></div>
-    <div id="customAlert">
-        <p>Tickets will be available soon!</p>
-        <button onclick="closeAlert()">OK</button>
-    </div>
+    
     <div class="slider_area">
         <div class="single_slider  d-flex align-items-center slider_bg_1 overlay">
             <div class="container">
@@ -150,7 +146,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section_title text-center mb-80">
-                        <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">About Program</h3>
+                        <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">What's in Xtrinia VI</h3>
                         <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s"></p>
                     </div>
                 </div>
@@ -339,6 +335,17 @@
 
                             </div>
                         </div>
+                        <div class="single_propram">
+                            <div class="inner_wrap">
+                                <div class="circle_img"></div>
+                                <div class="porgram_top ">
+                                    <img class="wow fadeInUp" src="./img/PER/Layer 8.png" alt="">
+                                    <h4 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s">And More..
+                                    </h4>
+                                </div>
+
+                            </div>
+                        </div>
 
                     </div>
                 </div>
@@ -482,7 +489,7 @@
                 </div>
                 <div class="single_info">
                     <span>Phone:</span>
-                    <p>8089471732</p>
+                    <p>9947757685</p>
                 </div>
                 <div class="single_info">
                     <span>Email:</span>
@@ -507,22 +514,22 @@
                 <div class="col-lg-12">
                     <div class="brand_wrap">
                         <div class="brand_active owl-carousel">
-                            <div class="single_brand text-center">
+                            <div class="single_brand text-center maskimage">
                                 <img class="slideimage" src="img/image1.png" alt="img">
                             </div>
-                            <div class="single_brand text-center">
+                            <div class="single_brand text-center maskimage">
                                 <img src="img/image2.png" alt="img">
                             </div>
-                            <div class="single_brand text-center">
+                            <div class="single_brand text-center maskimage">
                                 <img src="img/image3.png" alt="img">
                             </div>
-                            <div class="single_brand text-center">
+                            <div class="single_brand text-center maskimage">
                                 <img src="img/image1.png" alt="img">
                             </div>
-                            <div class="single_brand text-center">
+                            <div class="single_brand text-center maskimage">
                                 <img src="img/image2.png" alt="img">
                             </div>
-                            <div class="single_brand text-center">
+                            <div class="single_brand text-center maskimage">
                                 <img src="img/image3.png" alt="img">
                             </div>
 
@@ -582,6 +589,22 @@
         <p id="alertMessage" style="display: none;">Tickets will be available soon!</p>
         <button onclick="closeAlert()">OK</button>
     </div>
+
+    <a id="chatbot" href="javascript:void(0)" style="display: inline-block; position: fixed; z-index: 2147483647;">
+        <img class="ti-angle-up" src="./img/bubble-chat.png" alt="Chatbot">
+    </a>
+    
+    <div id="chatPopup" class="chat-popup">
+        <div class="header text-center py-3 bg-primary text-white">
+            Chatbot
+        </div>
+        <div id="chatBox" class="chat-box p-3"></div>
+        <div class="input-box p-3 d-flex">
+            <input type="text" id="userInput" class="form-control" placeholder="Type a message..." />
+            <button id="sendBtn" class="btn btn-primary ms-2">Send</button>
+        </div>
+    </div>
+    
     <!-- footer_end  -->
 
     <!-- JS here -->
